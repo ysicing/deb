@@ -1,0 +1,82 @@
+name: Build and Test Go DEB Package
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - 'go/**'
+  pull_request:
+    branches:
+      - master
+      - main
+    paths:
+      - 'go/**'
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install nfpm
+        run: |
+          echo "deb [trusted=yes] https://repo.goreleaser.com/apt/ /" | sudo tee /etc/apt/sources.list.d/goreleaser.list
+          sudo apt-get update
+          sudo apt-get install -y nfpm
+
+      - name: Build DEB package
+        run: |
+          cd go
+          ./build.sh
+
+      - name: List build artifacts
+        run: |
+          echo "▶ Build artifacts:"
+          find go/build -name "*.deb" -exec ls -lh {} \;
+
+      - name: Test DEB package installation (amd64 only)
+        run: |
+          # 安装 DEB 包
+          sudo dpkg -i go/build/amd64/*.deb || true
+          sudo apt-get install -f -y
+
+          # 验证安装
+          echo "▶ Verifying Go installation..."
+          go version
+
+          # 验证路径
+          which go
+          ls -l /usr/local/go/bin/go
+
+          # 验证 update-alternatives
+          update-alternatives --display go || true
+
+          # 简单测试
+          echo "▶ Running simple Go test..."
+          echo 'package main; import "fmt"; func main() { fmt.Println("Hello, Go!") }' > /tmp/test.go
+          go run /tmp/test.go
+
+      - name: Test DEB package removal
+        run: |
+          echo "▶ Testing package removal..."
+          sudo dpkg -r golang
+
+          # 验证已卸载
+          if command -v go &> /dev/null; then
+            echo "❌ Go should be removed but still exists"
+            exit 1
+          fi
+
+          echo "✔ Package removed successfully"
+
+      - name: Upload DEB packages (all architectures)
+        uses: actions/upload-artifact@v4
+        with:
+          name: golang-deb-packages
+          path: go/build/*/*.deb
+          retention-days: 30

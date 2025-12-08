@@ -1,17 +1,20 @@
 #!/bin/bash
 set -e
 
-# 支持的架构映射
-declare -A ARCH_MAP=(
-  ["amd64"]="amd64"
-  ["arm64"]="arm64"
-  ["386"]="386"
-  ["armv6"]="armv6l"
-  ["armv7"]="armv6l"
-  ["loong64"]="loong64"
-  ["ppc64le"]="ppc64le"
-  ["s390x"]="s390x"
-)
+# 架构映射函数 - 兼容 Bash 3.2+ (macOS/Linux)
+map_arch() {
+  case "$1" in
+    amd64)   echo "amd64" ;;
+    arm64)   echo "arm64" ;;
+    386)     echo "386" ;;
+    armv6)   echo "armv6l" ;;
+    armv7)   echo "armv6l" ;;
+    loong64) echo "loong64" ;;
+    ppc64le) echo "ppc64le" ;;
+    s390x)   echo "s390x" ;;
+    *)       echo "" ;;
+  esac
+}
 
 GO_VERSION="${1:-1.25.5}"
 ARCH_LIST="${2:-amd64 arm64}"
@@ -22,7 +25,7 @@ rm -rf build
 mkdir -p build
 
 for ARCH in $ARCH_LIST; do
-  GO_ARCH=${ARCH_MAP[$ARCH]}
+  GO_ARCH=$(map_arch "$ARCH")
 
   if [ -z "$GO_ARCH" ]; then
     echo "❌ Unknown architecture: $ARCH"
@@ -44,13 +47,13 @@ for ARCH in $ARCH_LIST; do
   tar -xf "$TARBALL"
 
   echo "▶ Generating nfpm.yaml ..."
-  cat ../../../nfpm.yaml.tmpl \
+  cat ../../nfpm.yaml.tmpl \
     | sed "s/{{ .Version }}/$GO_VERSION/g" \
     | sed "s/{{ .Arch }}/$ARCH/g" \
     > nfpm.yaml
 
   mkdir -p scripts
-  cp ../../../scripts/* scripts/
+  cp ../../scripts/* scripts/
 
   echo "▶ Packaging .deb for $ARCH ..."
   nfpm pkg --packager deb --config nfpm.yaml

@@ -1,5 +1,5 @@
 name: golang
-version: 1.25.5
+version: {{ .Version }}
 arch: {{ .Arch }}
 platform: linux
 section: devel
@@ -7,9 +7,6 @@ priority: optional
 maintainer: "ysicing <ysicing@12306.work>"
 description: "Go programming language (prebuilt binary) installed to /usr/local/go with update-alternatives entries."
 license: AGPLv3
-
-package:
-  name_template: "{{ .Package }}_{{ .Version }}_{{ .Arch }}.deb"
 
 # 将本地目录 ./go 整个放到 /usr/local/go
 contents:
