@@ -59,7 +59,7 @@ jobs:
       - name: Test DEB package removal
         run: |
           echo "▶ Testing package removal..."
-          sudo dpkg -r golang
+          sudo dpkg -r ys-golang
 
           # 验证已卸载
           if command -v go &> /dev/null; then
