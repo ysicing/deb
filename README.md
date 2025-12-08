@@ -1,92 +1,47 @@
-# Go DEB Package Builder
+# DEB Package Repository
 
-用于构建 Go 语言多架构 DEB 安装包的自动化工具。
+用于构建常用软件多架构 DEB 安装包的自动化工具集。
 
-## 功能特性
+## 支持的包
 
-- 支持多架构构建：amd64、arm64、386、armv6、armv7、loong64、ppc64le、s390x
-- 自动下载官方 Go 二进制文件
-- 使用 nfpm 打包为 DEB 格式
-- 自动配置 update-alternatives，支持多版本 Go 共存
-- 包含完整的安装/卸载钩子脚本
+| 包名 | 当前版本 | 支持架构 | 详细说明 |
+|------|---------|---------|---------|
+| [ys-golang](./go/) | 1.25.5 | amd64, arm64 | Go 编程语言官方二进制包 |
 
-## 依赖要求
+## 快速开始
 
-- `nfpm`：用于创建 DEB 包
-- `curl`：下载 Go 二进制文件
-- `tar`：解压缩
+### 使用 APT 镜像源安装
 
-安装 nfpm：
 ```bash
-# macOS
-brew install nfpm
+# 添加仓库配置
+echo "deb [trusted=yes] https://mirrors.china.12306.work/repository/ysicing/apt/ /" | sudo tee /etc/apt/sources.list.d/ysicing.list
 
-# Linux
-curl -sfL https://install.goreleaser.com/github.com/goreleaser/nfpm.sh | sh
+# 更新包列表
+sudo apt update
+
+# 安装软件包
+sudo apt install ys-golang
 ```
 
-## 使用方法
+### 构建 DEB 包
 
-### 基础构建
+每个软件包目录下都有独立的构建说明，例如：
 
 ```bash
 cd go
 ./build.sh
 ```
 
-默认构建 Go 1.25.5 版本，支持 amd64 和 arm64 架构。
-
-### 指定版本
-
-```bash
-./build.sh 1.23.4
-```
-
-### 指定架构
-
-```bash
-./build.sh 1.25.5 "amd64 arm64 loong64"
-```
-
-### 构建产物
-
-DEB 包输出在 `go/build/{架构}/` 目录下：
-```
-go/build/amd64/golang_1.25.5_amd64.deb
-go/build/arm64/golang_1.25.5_arm64.deb
-```
-
-## 安装说明
-
-```bash
-# 安装 DEB 包
-sudo dpkg -i golang_1.25.5_amd64.deb
-
-# 验证安装
-go version
-```
-
-安装后 Go 会被放置在 `/usr/local/go`，并通过 update-alternatives 管理。
-
-## 卸载
-
-```bash
-sudo dpkg -r golang
-```
+详细构建说明请参考各软件包目录下的 README.md 文件。
 
 ## 项目结构
 
 ```
 .
-├── go/
-│   ├── build.sh           # 构建脚本
-│   ├── nfpm.yaml.tmpl     # nfpm 配置模板
-│   ├── scripts/           # 安装钩子脚本
-│   │   ├── postinstall.sh
-│   │   ├── preremove.sh
-│   │   └── postremove.sh
-│   └── build/             # 构建输出目录（自动生成）
-└── README.md
+├── go/                    # ys-golang 包构建目录
+│   ├── README.md         # 详细构建说明
+│   └── build.sh          # 构建脚本
+└── README.md             # 本文件
 ```
 
 ## License
