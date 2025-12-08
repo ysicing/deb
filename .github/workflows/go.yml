@@ -74,9 +74,23 @@ jobs:
 
           echo "✔ Package removed successfully"
 
-      - name: Upload DEB packages (all architectures)
-        uses: actions/upload-artifact@v4
-        with:
-          name: golang-deb-packages
-          path: go/build/*/*.deb
-          retention-days: 30
+      - name: Publish to Fury
+        if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
+        env:
+          FURY_PUSH_TOKEN: ${{ secrets.FURY_PUSH_TOKEN }}
+        run: |
+          if [ -z "$FURY_PUSH_TOKEN" ]; then
+            echo "⚠️  FURY_PUSH_TOKEN not set, skipping publish"
+            exit 0
+          fi
+
+          echo "▶ Publishing DEB packages to Fury..."
+          for deb in go/build/*/*.deb; do
+            if [ -f "$deb" ]; then
+              echo "Uploading: $deb"
+              curl -f -F package=@"$deb" https://${FURY_PUSH_TOKEN}@push.fury.io/ysicing/
+              echo "✔ Uploaded: $(basename $deb)"
+            fi
+          done
+          echo "🎉 All packages published to Fury!"
+
