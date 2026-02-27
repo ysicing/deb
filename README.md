@@ -6,7 +6,9 @@
 
 | 包名 | 当前版本 | 支持架构 | 详细说明 |
 |------|---------|---------|---------|
-| [ys-golang](./go/) | 1.25.7 | amd64, arm64 | Go 编程语言官方二进制包 |
+| [ys-golang](./go/) | 1.26.0 | amd64, arm64 | Go 编程语言官方二进制包 |
+| [ys-task](./task/) | 3.48.0 | amd64, arm64 | Task 任务运行器 (Make 替代) |
+| [ys-gops](./gops/) | 0.3.29 | amd64, arm64 | Go 进程诊断工具 |
 
 ## 快速开始
 
@@ -21,6 +23,8 @@ sudo apt update
 
 # 安装软件包
 sudo apt install ys-golang
+sudo apt install ys-task
+sudo apt install ys-gops
 ```
 
 ### 构建 DEB 包
@@ -40,6 +44,10 @@ cd go
 .
 ├── go/                    # ys-golang 包构建目录
 │   ├── README.md         # 详细构建说明
+│   └── build.sh          # 构建脚本
+├── task/                  # ys-task 包构建目录
+│   └── build.sh          # 构建脚本
+├── gops/                  # ys-gops 包构建目录
 │   └── build.sh          # 构建脚本
 └── README.md             # 本文件
 ```

@@ -1,0 +1,16 @@
+name: ys-task
+version: {{ .Version }}
+arch: {{ .Arch }}
+platform: linux
+section: devel
+priority: optional
+maintainer: "ysicing <ysicing@12306.work>"
+description: "Task is a task runner / simpler Make alternative written in Go."
+license: MIT
+homepage: https://taskfile.dev
+
+contents:
+  - src: ./task
+    dst: /usr/local/bin/task
+    file_info:
+      mode: 0755

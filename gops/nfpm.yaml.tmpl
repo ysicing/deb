@@ -1,0 +1,16 @@
+name: ys-gops
+version: {{ .Version }}
+arch: {{ .Arch }}
+platform: linux
+section: devel
+priority: optional
+maintainer: "ysicing <ysicing@12306.work>"
+description: "gops is a command to list and diagnose Go processes currently running on your system."
+license: BSD-3-Clause
+homepage: https://github.com/google/gops
+
+contents:
+  - src: ./gops
+    dst: /usr/local/bin/gops
+    file_info:
+      mode: 0755
