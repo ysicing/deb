@@ -20,9 +20,11 @@ for ARCH in $ARCH_LIST; do
   mkdir -p "$WORKDIR"
 
   echo "▶ Cross-compiling gops for linux/$ARCH ..."
+  cd "$SRCDIR"
   GOOS=linux GOARCH=$ARCH CGO_ENABLED=0 \
     go build -trimpath -ldflags="-s -w" \
-    -o "$WORKDIR/gops" "./$SRCDIR"
+    -o "../../${WORKDIR}/gops" .
+  cd - >/dev/null
 
   cd "$WORKDIR"
 
