@@ -16,7 +16,7 @@ map_arch() {
   esac
 }
 
-GO_VERSION="${1:-1.26.0}"
+GO_VERSION="${1:-1.26.1}"
 ARCH_LIST="${2:-amd64 arm64}"
 
 echo "▶ Building Go $GO_VERSION for architectures: $ARCH_LIST"
