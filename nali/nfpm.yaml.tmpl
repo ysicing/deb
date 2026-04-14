@@ -1,0 +1,16 @@
+name: nali
+version: {{ .Version }}
+arch: {{ .Arch }}
+platform: linux
+section: net
+priority: optional
+maintainer: "ysicing <ysicing@12306.work>"
+description: "Nali is an offline tool for querying IP geographic information and CDN provider."
+license: MIT
+homepage: https://github.com/zu1k/nali
+
+contents:
+  - src: ./nali
+    dst: /usr/local/bin/nali
+    file_info:
+      mode: 0755

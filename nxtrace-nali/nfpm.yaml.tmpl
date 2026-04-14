@@ -1,0 +1,16 @@
+name: nxtrace-nali
+version: {{ .Version }}
+arch: {{ .Arch }}
+platform: linux
+section: net
+priority: optional
+maintainer: "ysicing <ysicing@12306.work>"
+description: "nali (nxtrace fork) is an offline tool for querying IP geographic information and CDN provider."
+license: MIT
+homepage: https://github.com/nxtrace/nali
+
+contents:
+  - src: ./nxtrace-nali
+    dst: /usr/local/bin/nxtrace-nali
+    file_info:
+      mode: 0755
