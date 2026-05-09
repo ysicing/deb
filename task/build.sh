@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-VERSION="${1:-3.49.1}"
+VERSION="${1:-3.50.0}"
 ARCH_LIST="${2:-amd64 arm64}"
 
 echo "▶ Building task $VERSION for architectures: $ARCH_LIST"
