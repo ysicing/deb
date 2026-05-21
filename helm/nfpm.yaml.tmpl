@@ -1,0 +1,16 @@
+name: ys-helm
+version: {{ .Version }}
+arch: {{ .Arch }}
+platform: linux
+section: devel
+priority: optional
+maintainer: "ysicing <ysicing@12306.work>"
+description: "Helm - The Kubernetes Package Manager."
+license: Apache-2.0
+homepage: https://helm.sh
+
+contents:
+  - src: ./helm
+    dst: /usr/local/bin/helm
+    file_info:
+      mode: 0755

@@ -9,6 +9,9 @@
 | [ys-golang](./go/) | 1.26.3 | amd64, arm64 | Go 编程语言官方二进制包 |
 | [ys-task](./task/) | 3.48.0 | amd64, arm64 | Task 任务运行器 (Make 替代) |
 | [ys-gops](./gops/) | 0.3.29 | amd64, arm64 | Go 进程诊断工具 |
+| [nali](./nali/) | 0.8.1 | amd64, arm64 | IP 地理信息查询工具 |
+| [nxtrace-nali](./nxtrace-nali/) | 1.7.5 | amd64, arm64 | NextTrace 集成 Nali 路由追踪工具 |
+| [ys-helm](./helm/) | 3.20.2 | amd64, arm64 | Helm - Kubernetes 包管理器 |
 
 ## 快速开始
 
@@ -25,6 +28,9 @@ sudo apt update
 sudo apt install ys-golang
 sudo apt install ys-task
 sudo apt install ys-gops
+sudo apt install nali
+sudo apt install nxtrace-nali
+sudo apt install ys-helm
 ```
 
 ### 构建 DEB 包
@@ -48,6 +54,12 @@ cd go
 ├── task/                  # ys-task 包构建目录
 │   └── build.sh          # 构建脚本
 ├── gops/                  # ys-gops 包构建目录
+│   └── build.sh          # 构建脚本
+├── nali/                  # nali 包构建目录
+│   └── build.sh          # 构建脚本
+├── nxtrace-nali/          # nxtrace-nali 包构建目录
+│   └── build.sh          # 构建脚本
+├── helm/                  # ys-helm 包构建目录
 │   └── build.sh          # 构建脚本
 └── README.md             # 本文件
 ```
