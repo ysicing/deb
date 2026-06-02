@@ -1,0 +1,23 @@
+listen: :443
+
+acme:
+  domains:
+    - x
+  email: x
+
+auth:
+  type: password
+  password: Oace1wei9ChuoPa5Hoas
+
+speedTest: true
+
+obfs:
+  type: salamander
+  salamander:
+    password: Oace1wei9ChuoPa5Hoas
+
+masquerade:
+  type: string
+  string:
+    content: Missing Token
+    statusCode: 401

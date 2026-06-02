@@ -1,0 +1,28 @@
+name: ys-hy2s
+version: {{ .Version }}
+arch: {{ .Arch }}
+platform: linux
+section: net
+priority: optional
+maintainer: "ysicing <ysicing@12306.work>"
+description: "hy2s - a powerful, lightning fast and censorship resistant proxy server (with systemd)."
+license: MIT
+homepage: https://github.com/ysicing/deb
+
+contents:
+  - src: ./hy2s
+    dst: /usr/local/bin/hy2s
+    file_info:
+      mode: 0755
+  - src: ./hy2s.service
+    dst: /etc/systemd/system/hy2s.service
+    file_info:
+      mode: 0644
+  - src: ./config.yaml
+    dst: /etc/hy2s/config.yaml.example
+    file_info:
+      mode: 0644
+
+scripts:
+  postinstall: ./postinstall.sh
+  preremove: ./preremove.sh

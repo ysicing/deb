@@ -12,6 +12,10 @@
 | [nali](./nali/) | 0.8.1 | amd64, arm64 | IP 地理信息查询工具 |
 | [nxtrace-nali](./nxtrace-nali/) | 1.7.5 | amd64, arm64 | NextTrace 集成 Nali 路由追踪工具 |
 | [ys-helm](./helm/) | 3.20.2 | amd64, arm64 | Helm - Kubernetes 包管理器 |
+| [ys-mc](./mc/) | 2025.08.13 | amd64, arm64 | MinIO Client 对象存储命令行工具 |
+| [ys-caddy](./caddy/) | 2.11.3 | amd64, arm64 | Caddy - 自动 HTTPS 的 Web 服务器 |
+| [ys-hy2](./hy2/) | 2.9.2 | amd64, arm64 | hy2 代理客户端 |
+| [ys-hy2s](./hy2s/) | 2.9.2 | amd64, arm64 | hy2s 代理服务端 (含 systemd) |
 
 ## 快速开始
 
@@ -31,6 +35,10 @@ sudo apt install ys-gops
 sudo apt install nali
 sudo apt install nxtrace-nali
 sudo apt install ys-helm
+sudo apt install ys-mc
+sudo apt install ys-caddy
+sudo apt install ys-hy2
+sudo apt install ys-hy2s
 ```
 
 ### 构建 DEB 包
@@ -43,26 +51,6 @@ cd go
 ```
 
 详细构建说明请参考各软件包目录下的 README.md 文件。
-
-## 项目结构
-
-```
-.
-├── go/                    # ys-golang 包构建目录
-│   ├── README.md         # 详细构建说明
-│   └── build.sh          # 构建脚本
-├── task/                  # ys-task 包构建目录
-│   └── build.sh          # 构建脚本
-├── gops/                  # ys-gops 包构建目录
-│   └── build.sh          # 构建脚本
-├── nali/                  # nali 包构建目录
-│   └── build.sh          # 构建脚本
-├── nxtrace-nali/          # nxtrace-nali 包构建目录
-│   └── build.sh          # 构建脚本
-├── helm/                  # ys-helm 包构建目录
-│   └── build.sh          # 构建脚本
-└── README.md             # 本文件
-```
 
 ## License
 

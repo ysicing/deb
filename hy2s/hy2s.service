@@ -1,0 +1,14 @@
+[Unit]
+Description=hy2s Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/hy2s server --config /etc/hy2s/config.yaml
+WorkingDirectory=/etc/hy2s
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=infinity
+
+[Install]
+WantedBy=multi-user.target

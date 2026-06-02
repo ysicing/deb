@@ -1,0 +1,15 @@
+name: ys-hy2
+version: {{ .Version }}
+arch: {{ .Arch }}
+platform: linux
+section: net
+priority: optional
+maintainer: "ysicing <ysicing@12306.work>"
+description: "hy2 - a powerful, lightning fast and censorship resistant proxy client."
+license: MIT
+homepage: https://github.com/ysicing/deb
+contents:
+  - src: ./hy2
+    dst: /usr/local/bin/hy2
+    file_info:
+      mode: 0755
