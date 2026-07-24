@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-VERSION="${1:-2.11.3}"
+VERSION="${1:-2.11.4}"
 ARCH_LIST="${2:-amd64 arm64}"
 
 # Caddy plugins compiled into the binary via xcaddy.
