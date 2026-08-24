@@ -10,27 +10,27 @@
 ## 使用方法
 
 ```bash
-# 默认构建 (v3.52.0, amd64+arm64)
+# 默认构建 (v3.53.1, amd64+arm64)
 ./build.sh
 
 # 指定版本
-./build.sh 3.52.0
+./build.sh 3.53.1
 
 # 指定版本和架构
-./build.sh 3.52.0 "amd64 arm64"
+./build.sh 3.53.1 "amd64 arm64"
 ```
 
 ### 构建产物
 
 ```
-build/amd64/ys-task_3.52.0_amd64.deb
-build/arm64/ys-task_3.52.0_arm64.deb
+build/amd64/ys-task_3.53.1_amd64.deb
+build/arm64/ys-task_3.53.1_arm64.deb
 ```
 
 ## 安装 / 卸载
 
 ```bash
-sudo dpkg -i ys-task_3.52.0_amd64.deb
+sudo dpkg -i ys-task_3.53.1_amd64.deb
 task --version
 
 sudo dpkg -r ys-task

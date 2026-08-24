@@ -6,16 +6,16 @@
 
 | 包名 | 当前版本 | 支持架构 | 详细说明 |
 |------|---------|---------|---------|
-| [ys-golang](./go/) | 1.26.5 | amd64, arm64 | Go 编程语言官方二进制包 |
-| [ys-task](./task/) | 3.52.0 | amd64, arm64 | Task 任务运行器 (Make 替代) |
+| [ys-golang](./go/) | 1.27.0 | amd64, arm64 | Go 编程语言官方二进制包 |
+| [ys-task](./task/) | 3.53.1 | amd64, arm64 | Task 任务运行器 (Make 替代) |
 | [ys-gops](./gops/) | 0.3.29 | amd64, arm64 | Go 进程诊断工具 |
 | [nali](./nali/) | 0.8.1 | amd64, arm64 | IP 地理信息查询工具 |
 | [nxtrace-nali](./nxtrace-nali/) | 1.7.5 | amd64, arm64 | NextTrace 集成 Nali 路由追踪工具 |
 | [ys-helm](./helm/) | 3.20.2 | amd64, arm64 | Helm - Kubernetes 包管理器 |
 | [ys-mc](./mc/) | 2025.08.13 | amd64, arm64 | MinIO Client 对象存储命令行工具 |
 | [ys-caddy](./caddy/) | 2.11.4 | amd64, arm64 | Caddy - 自动 HTTPS 的 Web 服务器 |
-| [ys-hy2](./hy2/) | 2.10.0 | amd64, arm64 | hy2 代理客户端 |
-| [ys-hy2s](./hy2s/) | 2.10.0 | amd64, arm64 | hy2s 代理服务端 (含 systemd) |
+| [ys-hy2](./hy2/) | 2.12.2 | amd64, arm64 | hy2 代理客户端 |
+| [ys-hy2s](./hy2s/) | 2.12.2 | amd64, arm64 | hy2s 代理服务端 (含 systemd) |
 
 ## 快速开始
 

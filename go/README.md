@@ -33,7 +33,7 @@ curl -sfL https://install.goreleaser.com/github.com/goreleaser/nfpm.sh | sh
 ./build.sh
 ```
 
-默认构建 Go 1.26.5 版本，支持 amd64 和 arm64 架构。
+默认构建 Go 1.27.0 版本，支持 amd64 和 arm64 架构。
 
 ### 指定版本
 
@@ -44,22 +44,22 @@ curl -sfL https://install.goreleaser.com/github.com/goreleaser/nfpm.sh | sh
 ### 指定架构
 
 ```bash
-./build.sh 1.26.5 "amd64 arm64 loong64"
+./build.sh 1.27.0 "amd64 arm64 loong64"
 ```
 
 ### 构建产物
 
 DEB 包输出在 `build/{架构}/` 目录下：
 ```
-build/amd64/ys-golang_1.26.5_amd64.deb
-build/arm64/ys-golang_1.26.5_arm64.deb
+build/amd64/ys-golang_1.27.0_amd64.deb
+build/arm64/ys-golang_1.27.0_arm64.deb
 ```
 
 ## 手动安装
 
 ```bash
 # 安装 DEB 包
-sudo dpkg -i ys-golang_1.26.5_amd64.deb
+sudo dpkg -i ys-golang_1.27.0_amd64.deb
 
 # 验证安装
 go version
