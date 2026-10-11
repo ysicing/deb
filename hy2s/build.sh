@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-VERSION="${1:-2.12.2}"
+VERSION="${1:-2.13.0}"
 ARCH_LIST="${2:-amd64 arm64}"
 
 echo "▶ Building hy2s $VERSION for architectures: $ARCH_LIST"

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-VERSION="${1:-3.20.2}"
+VERSION="${1:-3.22.0}"
 ARCH_LIST="${2:-amd64 arm64}"
 
 echo "▶ Building helm $VERSION for architectures: $ARCH_LIST"
