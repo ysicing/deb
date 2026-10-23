@@ -1,0 +1,27 @@
+name: ys-k3s-{{ .Role }}
+version: {{ .Version }}
+arch: {{ .Arch }}
+platform: linux
+section: admin
+priority: optional
+maintainer: "ysicing <ysicing@12306.work>"
+description: "K3s lightweight Kubernetes ({{ .Role }}). Existing services receive binary updates only."
+license: Apache-2.0
+homepage: https://k3s.io
+depends:
+  - systemd
+conflicts:
+  - ys-k3s-{{ .Conflict }}
+contents:
+  - src: ../k3s
+    dst: /usr/local/bin/k3s
+    file_info:
+      mode: 0755
+  - src: ./k3s.service
+    dst: /usr/share/ys-k3s-{{ .Role }}/k3s.service
+    file_info:
+      mode: 0644
+scripts:
+  postinstall: ./scripts/postinstall.sh
+  preremove: ./scripts/preremove.sh
+  postremove: ./scripts/postremove.sh

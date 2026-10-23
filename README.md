@@ -6,16 +6,20 @@
 
 | 包名 | 当前版本 | 支持架构 | 详细说明 |
 |------|---------|---------|---------|
-| [ys-golang](./go/) | 1.27.2 | amd64, arm64 | Go 编程语言官方二进制包 |
+| [ys-golang](./go/) | 1.27.3 | amd64, arm64 | Go 编程语言官方二进制包 |
 | [ys-task](./task/) | 3.54.0 | amd64, arm64 | Task 任务运行器 (Make 替代) |
 | [ys-gops](./gops/) | 0.3.29 | amd64, arm64 | Go 进程诊断工具 |
 | [nali](./nali/) | 0.8.1 | amd64, arm64 | IP 地理信息查询工具 |
 | [nxtrace-nali](./nxtrace-nali/) | 1.7.5 | amd64, arm64 | NextTrace 集成 Nali 路由追踪工具 |
-| [ys-helm](./helm/) | 3.22.0 | amd64, arm64 | Helm - Kubernetes 包管理器 |
+| [ys-helm](./helm/) | 3.22.1 | amd64, arm64 | Helm - Kubernetes 包管理器，保持 3.x |
 | [ys-mc](./mc/) | 2025.08.13 | amd64, arm64 | MinIO Client 对象存储命令行工具 |
 | [ys-caddy](./caddy/) | 2.11.7 | amd64, arm64 | Caddy - 自动 HTTPS 的 Web 服务器 |
 | [ys-hy2](./hy2/) | 2.13.0 | amd64, arm64 | hy2 代理客户端 |
 | [ys-hy2s](./hy2s/) | 2.13.0 | amd64, arm64 | hy2s 代理服务端 (含 systemd) |
+| [ys-k3s-master](./k3s/) | 1.36.5+k3s1 | amd64, arm64 | K3s server，与 worker 包互斥 |
+| [ys-k3s-worker](./k3s/) | 1.36.5+k3s1 | amd64, arm64 | K3s agent，与 master 包互斥 |
+
+2026-10-23 已核对上游版本；Helm 4.3.1 涉及大版本变化，本仓库暂时保留 3.x。K3s 默认采用官方 stable 通道，构建时可显式指定其他版本。
 
 ## 快速开始
 
@@ -39,6 +43,9 @@ sudo apt install ys-mc
 sudo apt install ys-caddy
 sudo apt install ys-hy2
 sudo apt install ys-hy2s
+# K3s 二选一；已有服务时只更新二进制，不重启或改写配置
+sudo apt install ys-k3s-master
+# sudo apt install ys-k3s-worker
 ```
 
 ### 构建 DEB 包
