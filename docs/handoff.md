@@ -1,5 +1,15 @@
 # 打包维护注意事项
 
+## Nezha Agent
+
+- gaeaflow/nezha 的 CNB `latest` 当前指向 `dev` 预发布；正式版须从 Release 列表筛选，不能直接拿 latest 作为稳定版本。Agent 原始附件为 `nezha-agent-linux-<arch>`，校验文件名是 `sha256sums.txt`。
+- 服务示例放在 `/usr/share/ys-nezha-agent`，由用户配置后手动启用，不在打包或安装时连接 Dashboard。已有手工部署须先核对服务与二进制路径，包不自动接管。
+
+## txcli
+
+- CNB 的 Release 查询 API 可能要求认证；401 不能判断为没有新版本。可通过 `cnb releases get-latest-release --repo ysicing/txcli` 查询，构建使用无需登录的 `https://cnb.cool/ysicing/txcli/-/releases/download/<tag>/<filename>` 下载附件，并校验 `SHA256SUMS`。
+- v1.0.0 没有 `--version` 命令；安装冒烟检查使用 `--help` 和离线的 `policygen --read-only`，无需配置云凭证。
+
 ## K3s
 
 - 官方 stable 和 GitHub latest 可能属于不同 Kubernetes 小版本。默认构建版本应核对官方通道，不自动选最新 release，也不代替现有集群的升级顺序判断。

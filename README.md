@@ -8,6 +8,8 @@
 |------|---------|---------|---------|
 | [ys-golang](./go/) | 1.27.3 | amd64, arm64 | Go 编程语言官方二进制包 |
 | [ys-task](./task/) | 3.54.0 | amd64, arm64 | Task 任务运行器 (Make 替代) |
+| [ys-nezha-agent](./nezha-agent/) | 0.23.0 | amd64, arm64 | 哪吒 v0 分支监控 Agent（gaeaflow/nezha） |
+| [ys-txcli](./txcli/) | 1.0.0 | amd64, arm64 | 腾讯云 Lighthouse、DNSPod 和 EdgeOne 管理工具 |
 | [ys-gops](./gops/) | 0.3.29 | amd64, arm64 | Go 进程诊断工具 |
 | [nali](./nali/) | 0.8.1 | amd64, arm64 | IP 地理信息查询工具 |
 | [nxtrace-nali](./nxtrace-nali/) | 1.7.5 | amd64, arm64 | NextTrace 集成 Nali 路由追踪工具 |
@@ -35,6 +37,8 @@ sudo apt update
 # 安装软件包
 sudo apt install ys-golang
 sudo apt install ys-task
+sudo apt install ys-txcli
+sudo apt install ys-nezha-agent
 sudo apt install ys-gops
 sudo apt install nali
 sudo apt install nxtrace-nali

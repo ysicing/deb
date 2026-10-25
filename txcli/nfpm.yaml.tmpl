@@ -1,0 +1,21 @@
+name: ys-txcli
+version: {{ .Version }}
+arch: {{ .Arch }}
+platform: linux
+section: utils
+priority: optional
+maintainer: ysicing
+description: "Tencent Cloud CLI for Lighthouse, DNSPod and EdgeOne."
+homepage: https://cnb.cool/ysicing/txcli
+depends:
+  - ca-certificates
+conflicts:
+  - txcli
+
+contents:
+  - src: ./txcli
+    dst: /usr/local/bin/txcli
+    file_info:
+      mode: 0755
+      owner: root
+      group: root

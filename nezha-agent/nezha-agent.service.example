@@ -1,0 +1,16 @@
+[Unit]
+Description=Nezha Monitoring Agent
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/default/ys-nezha-agent
+ExecStartPre=/bin/sh -c 'test -n "$NEZHA_AGENT_SERVER" && test -n "$NEZHA_AGENT_SECRET"'
+ExecStart=/usr/local/bin/nezha-agent --server ${NEZHA_AGENT_SERVER} --password ${NEZHA_AGENT_SECRET} $NEZHA_AGENT_FLAGS
+Restart=on-failure
+RestartSec=5s
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
