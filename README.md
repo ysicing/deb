@@ -6,7 +6,7 @@
 
 | 包名 | 当前版本 | 支持架构 | 详细说明 |
 |------|---------|---------|---------|
-| [ys-golang](./go/) | 1.27.3 | amd64, arm64 | Go 编程语言官方二进制包 |
+| [ys-golang](./go/) | 1.27.4 | amd64, arm64 | Go 编程语言官方二进制包 |
 | [ys-task](./task/) | 3.54.0 | amd64, arm64 | Task 任务运行器 (Make 替代) |
 | [ys-nezha-agent](./nezha-agent/) | 0.23.0 | amd64, arm64 | 哪吒 v0 分支监控 Agent（gaeaflow/nezha） |
 | [ys-txcli](./txcli/) | 1.0.0 | amd64, arm64 | 腾讯云 Lighthouse、DNSPod 和 EdgeOne 管理工具 |
